@@ -94,6 +94,11 @@ static inline uint16_t pmt_get_pcrpid(const uint8_t *p_pmt)
     return ((p_pmt[8] & 0x1f) << 8) | p_pmt[9];
 }
 
+static inline uint16_t pmt_get_program_number(const uint8_t * p_pmt)
+{
+    return (p_pmt[3] << 8) | p_pmt[4]; 
+}
+
 static inline void pmt_set_desclength(uint8_t *p_pmt, uint16_t i_length)
 {
     p_pmt[10] &= ~0xf;

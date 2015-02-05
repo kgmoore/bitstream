@@ -94,7 +94,7 @@ static inline void desc04_set_channel(uint8_t *p_desc, uint8_t i_channel)
 
 static inline char *desc04_get_type_txt(uint8_t i_type)
 {
-    return i_type == 0 ? "reserved" :
+    return (char*) (i_type == 0 ? "reserved" :
            i_type == 1 ? "Spatial Scalability" :
            i_type == 2 ? "SNR Scalability" :
            i_type == 3 ? "Temporal Scalability" :
@@ -103,7 +103,7 @@ static inline char *desc04_get_type_txt(uint8_t i_type)
            i_type == 6 ? "Private Stream" :
            i_type == 7 ? "Multi-view Profile" :
            i_type >= 8 && i_type <= 14 ? "reserved" :
-           i_type == 15 ? "base layer" : "unknown";
+           i_type == 15 ? "base layer" : "unknown") ;
 }
 
 static inline bool desc04_validate(const uint8_t *p_desc)
