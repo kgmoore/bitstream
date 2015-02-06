@@ -241,6 +241,11 @@ static inline void tsaf_set_streampriority(uint8_t *p_ts)
     p_ts[5] |= 0x20;
 }
 
+static inline bool tsaf_get_transport_private_data_flag(const uint8_t *p_ts)
+{
+    return !!(p_ts[5] & 0x02);
+}
+
 static inline void tsaf_set_pcr(uint8_t *p_ts, uint64_t i_pcr)
 {
     p_ts[5] |= 0x10;
